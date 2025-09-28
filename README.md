@@ -121,4 +121,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ---
 
-**Note**: This is a learning project that is updated daily to explore and implement various Angular features and best practices.
+**Note**: This  is gonna be updated daily to explore and implement various Angular features and best practices.
