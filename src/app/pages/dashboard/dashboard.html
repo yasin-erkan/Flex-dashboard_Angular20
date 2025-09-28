@@ -1,0 +1,18 @@
+<div class="header">
+  <h2>Dashboard Channel</h2>
+  <button mat-raised-button [mat-menu-trigger-for]="widgetMenu">
+    <mat-icon color="primary">add_circle</mat-icon>
+    <span color="black">Add Widget</span>
+  </button>
+  <mat-menu #widgetMenu="matMenu">
+    @for (widget of store.widgetsToAdd(); track widget.id) {
+    <button mat-menu-item (click)="store.addWidget(widget)">{{ widget.label }}</button>
+    } @empty { <button mat-menu-item>No widgets to add</button> }
+  </mat-menu>
+</div>
+
+<div class="dashboard-widgets">
+  @for (widget of store.addedWidgets(); track widget.id) {
+  <app-widget [data]="widget" />
+  }
+</div>

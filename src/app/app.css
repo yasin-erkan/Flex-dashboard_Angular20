@@ -1,0 +1,154 @@
+:root {
+  /* Ana Renkler */
+  --primary: #1a73e8;
+  --primary-light: #4285f4;
+  --primary-dark: #1557b0;
+
+  /* Nötr Renkler */
+  --background: #f8f9fa;
+  --surface: #ffffff;
+  --surface-hover: #f1f3f4;
+
+  /* Metin Renkleri */
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-muted: #80868b;
+
+  /* Kenar ve Gölge */
+  --border: #dadce0;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+mat-toolbar {
+  position: relative;
+  z-index: 5;
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  animation: fadeInDown 0.5s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+mat-toolbar:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.content {
+  padding: 24px;
+  animation: scaleIn 0.5s ease-out;
+  min-height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+  background: transparent;
+}
+
+mat-sidenav {
+  width: 250px;
+  border-right: none;
+  background: #ffffff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+mat-sidenav.collapsed {
+  width: 65px;
+}
+
+mat-sidenav-content {
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Toolbar button animations */
+mat-toolbar button {
+  transition: all 0.3s ease;
+}
+
+mat-toolbar button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth scrolling for content */
+mat-sidenav-content {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
