@@ -43,3 +43,14 @@
   left: -5px;
   right: 5px;
 }
+
+.remove-widget-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgb(212, 120, 120);
+  :hover {
+    color: rgb(232, 5, 5);
+  }
+  cursor: pointer;
+}

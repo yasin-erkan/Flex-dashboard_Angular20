@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.text-green {
+  color: #4caf50;
+  margin-left: 8px;
+}
+
+.text-dim-gray {
+  color: #cec4c4;
+}
+
+.stat-subtext {
+  font-size: 14px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}

@@ -1,7 +1,16 @@
-<div class="container mat-elevation-z3">
+<div
+  class="container mat-elevation-z3"
+  [style.background-color]="data().backgroundColor ?? 'white'"
+  [style.color]="data().textColor ?? 'inherit'"
+>
   <h3 class="m-0">{{ data().label }}</h3>
 
-  <button mat-icon-button class="settings-button" (click)="showOptions.set(true)">
+  <button
+    mat-icon-button
+    class="settings-button"
+    (click)="showOptions.set(true)"
+    [style.--mdc-icon-button-icon-button]="data().textColor ?? 'inherit'"
+  >
     <mat-icon>settings</mat-icon>
   </button>
 
