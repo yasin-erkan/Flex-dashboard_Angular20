@@ -1,4 +1,4 @@
-# Flex Dashboard - Customizable Angular Dashboard Platform
+# Flex-dashboard_Angular20
 
 A modern, flexible, and customizable dashboard platform built with Angular 20. This project demonstrates advanced Angular features including standalone components, signals, and Material UI integration.
 
