@@ -3,9 +3,9 @@ import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-views',
+  selector: 'app-revenue',
   imports: [MatIcon, CommonModule],
-  templateUrl: './views.html',
-  styleUrl: './views.css',
+  templateUrl: './revenue.html',
+  styleUrl: './revenue.css',
 })
-export class ViewsComponent {}
+export class RevenueComponent {}
