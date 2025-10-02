@@ -4,6 +4,9 @@ import { Widget } from '../models/dashboard';
 import { ViewsComponent } from '../pages/dashboard/widgets/views';
 import { WatchTimeComponent } from '../pages/dashboard/widgets/watch-time';
 import { RevenueComponent } from '../pages/dashboard/widgets/revenue';
+import { AnalyticsComponent } from '../pages/dashboard/widgets/analytics';
+import { TrafficSourcesComponent } from '../pages/dashboard/widgets/traffic-sources';
+import { LatestCommentsComponent } from '../pages/dashboard/widgets/latest-comments';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +49,27 @@ export class DashboardService {
       backgroundColor: '#58508d',
       textColor: 'whitesmoke',
     },
+    {
+      id: 5,
+      label: ' Channel Analytics',
+      content: AnalyticsComponent,
+      rows: 2,
+      columns: 2,
+    },
+    {
+      id: 6,
+      label: ' Traffic Sources',
+      content: TrafficSourcesComponent,
+      rows: 2,
+      columns: 1,
+    },
+    {
+      id: 7,
+      label: ' Latest Comments',
+      content: LatestCommentsComponent,
+      rows: 2,
+      columns: 1,
+    },
   ]);
 
   addedWidgets = signal<Widget[]>([]);
@@ -56,22 +80,33 @@ export class DashboardService {
   });
 
   fetchWidgets() {
-    const widgetsAsString = localStorage.getItem('dashboardWidgets');
-    if (widgetsAsString) {
-      const widgets = JSON.parse(widgetsAsString) as Widget[];
-
-      widgets.forEach((widget) => {
-        const content = this.widgets().find((w) => w.id === widget.id)?.content;
-        if (content) {
-          widget.content = content;
-        }
-      });
-      this.addedWidgets.set(widgets);
+    // Load widgets from localStorage
+    const savedWidgets = localStorage.getItem('dashboardWidgets');
+    if (savedWidgets) {
+      try {
+        const widgets = JSON.parse(savedWidgets);
+        // Restore content property for each widget
+        const widgetsWithContent = widgets.map((savedWidget: any) => {
+          const originalWidget = this.widgets().find((w) => w.id === savedWidget.id);
+          return {
+            ...savedWidget,
+            content: originalWidget?.content,
+          };
+        });
+        this.addedWidgets.set(widgetsWithContent);
+      } catch (error) {
+        console.error('Error loading widgets from localStorage:', error);
+        this.addedWidgets.set([]);
+      }
+    } else {
+      this.addedWidgets.set([]);
     }
   }
 
   addWidget(widget: Widget) {
-    this.addedWidgets.set([...this.addedWidgets(), { ...widget }]);
+    const newWidgets = [...this.addedWidgets(), { ...widget }];
+    this.addedWidgets.set(newWidgets);
+    this.saveToLocalStorage(newWidgets);
   }
 
   updateWidget(id: number, widget: Partial<Widget>) {
@@ -80,6 +115,7 @@ export class DashboardService {
       const newWidgets = [...this.addedWidgets()];
       newWidgets[index] = { ...newWidgets[index], ...widget } as Widget;
       this.addedWidgets.set(newWidgets);
+      this.saveToLocalStorage(newWidgets);
     }
   }
   moveWidgetRight(id: number) {
@@ -90,6 +126,7 @@ export class DashboardService {
     const newWidgets = [...this.addedWidgets()];
     [newWidgets[index], newWidgets[index + 1]] = [newWidgets[index + 1], newWidgets[index]];
     this.addedWidgets.set(newWidgets);
+    this.saveToLocalStorage(newWidgets);
   }
 
   moveWidgetLeft(id: number) {
@@ -100,9 +137,27 @@ export class DashboardService {
     const newWidgets = [...this.addedWidgets()];
     [newWidgets[index], newWidgets[index - 1]] = [newWidgets[index - 1], newWidgets[index]];
     this.addedWidgets.set(newWidgets);
+    this.saveToLocalStorage(newWidgets);
   }
   removeWidget(id: number) {
-    this.addedWidgets.set(this.addedWidgets().filter((widget) => widget.id !== id));
+    const newWidgets = this.addedWidgets().filter((widget) => widget.id !== id);
+    this.addedWidgets.set(newWidgets);
+    this.saveToLocalStorage(newWidgets);
+  }
+  moveWidget(fromIndex: number, toIndex: number) {
+    const widgets = [...this.addedWidgets()];
+    const widget = widgets.splice(fromIndex, 1)[0];
+    widgets.splice(toIndex, 0, widget);
+    this.addedWidgets.set(widgets);
+    this.saveToLocalStorage(widgets);
+  }
+
+  private saveToLocalStorage(widgets: Widget[]) {
+    try {
+      localStorage.setItem('dashboardWidgets', JSON.stringify(widgets));
+    } catch (error) {
+      console.error('Error saving widgets to localStorage:', error);
+    }
   }
 
   constructor() {

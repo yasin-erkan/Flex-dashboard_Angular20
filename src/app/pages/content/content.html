@@ -1,1 +1,190 @@
-<p>content works!</p>
+<div class="content-page">
+  <div class="page-header">
+    <h1>Content Management</h1>
+    <p>Manage and organize your video content</p>
+    <button mat-raised-button class="add-content-btn">
+      <mat-icon>add</mat-icon>
+      Upload New Video
+    </button>
+  </div>
+
+  <div class="content-stats">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-icon">
+          <mat-icon>video_library</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">24</div>
+          <div class="stat-label">Total Videos</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-icon">
+          <mat-icon>visibility</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">1.2M</div>
+          <div class="stat-label">Total Views</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-icon">
+          <mat-icon>schedule</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Scheduled</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-icon">
+          <mat-icon>edit</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Drafts</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="content-sections">
+    <mat-card class="recent-videos">
+      <mat-card-header>
+        <mat-card-title>Recent Videos</mat-card-title>
+        <mat-card-subtitle>Your latest uploads</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="video-list">
+          <div class="video-item">
+            <div class="video-thumbnail">
+              <mat-icon>play_circle</mat-icon>
+            </div>
+            <div class="video-info">
+              <h4>How to Build React Apps</h4>
+              <p>Published 2 days ago</p>
+              <div class="video-stats">
+                <span><mat-icon>visibility</mat-icon> 45K views</span>
+                <span><mat-icon>thumb_up</mat-icon> 1.2K likes</span>
+              </div>
+            </div>
+            <div class="video-actions">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="video-item">
+            <div class="video-thumbnail">
+              <mat-icon>play_circle</mat-icon>
+            </div>
+            <div class="video-info">
+              <h4>Advanced JavaScript Patterns</h4>
+              <p>Published 1 week ago</p>
+              <div class="video-stats">
+                <span><mat-icon>visibility</mat-icon> 32K views</span>
+                <span><mat-icon>thumb_up</mat-icon> 890 likes</span>
+              </div>
+            </div>
+            <div class="video-actions">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="video-item">
+            <div class="video-thumbnail">
+              <mat-icon>play_circle</mat-icon>
+            </div>
+            <div class="video-info">
+              <h4>CSS Grid Tutorial</h4>
+              <p>Published 2 weeks ago</p>
+              <div class="video-stats">
+                <span><mat-icon>visibility</mat-icon> 28K views</span>
+                <span><mat-icon>thumb_up</mat-icon> 756 likes</span>
+              </div>
+            </div>
+            <div class="video-actions">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="content-calendar">
+      <mat-card-header>
+        <mat-card-title>Content Calendar</mat-card-title>
+        <mat-card-subtitle>Upcoming uploads</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="calendar-events">
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">15</span>
+              <span class="month">Oct</span>
+            </div>
+            <div class="event-info">
+              <h4>Angular Tutorial Series</h4>
+              <p>Scheduled upload</p>
+            </div>
+            <div class="event-status">
+              <mat-icon>schedule</mat-icon>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">18</span>
+              <span class="month">Oct</span>
+            </div>
+            <div class="event-info">
+              <h4>TypeScript Deep Dive</h4>
+              <p>Scheduled upload</p>
+            </div>
+            <div class="event-status">
+              <mat-icon>schedule</mat-icon>
+            </div>
+          </div>
+
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">22</span>
+              <span class="month">Oct</span>
+            </div>
+            <div class="event-info">
+              <h4>Node.js Backend Guide</h4>
+              <p>Scheduled upload</p>
+            </div>
+            <div class="event-status">
+              <mat-icon>schedule</mat-icon>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

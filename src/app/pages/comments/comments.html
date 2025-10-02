@@ -1,1 +1,76 @@
-<p>comments works!</p>
+<div class="comments-page">
+  <div class="page-header">
+    <h1>Latest Comments</h1>
+    <p>Recent comments and feedback from your audience</p>
+  </div>
+
+  <div class="stats-cards">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-number">53</div>
+        <div class="stat-label">Total Comments</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-number">67%</div>
+        <div class="stat-label">Positive Sentiment</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-number">8.2</div>
+        <div class="stat-label">Avg Likes</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-card class="comments-card">
+    <mat-card-header>
+      <mat-card-title>Recent Comments</mat-card-title>
+      <mat-card-subtitle>Latest feedback from your viewers</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="comments-list">
+        @for (comment of comments; track comment.id) {
+        <div class="comment-item">
+          <div class="comment-header">
+            <div class="user-info">
+              <div class="avatar" [style.background-color]="getSentimentColor(comment.isPositive)">
+                {{ getInitials(comment.user) }}
+              </div>
+              <div class="user-details">
+                <div class="username">{{ comment.user }}</div>
+                <div class="video-title">{{ comment.video }}</div>
+              </div>
+            </div>
+            <div class="comment-meta">
+              <span class="time">{{ comment.time }}</span>
+              <mat-icon [class]="comment.isPositive ? 'sentiment-positive' : 'sentiment-negative'">
+                {{ getSentimentIcon(comment.isPositive) }}
+              </mat-icon>
+            </div>
+          </div>
+
+          <div class="comment-content">
+            <p>{{ comment.comment }}</p>
+          </div>
+
+          <div class="comment-footer">
+            <button mat-icon-button class="like-button">
+              <mat-icon>thumb_up</mat-icon>
+              <span>{{ comment.likes }}</span>
+            </button>
+            <button mat-icon-button class="reply-button">
+              <mat-icon>reply</mat-icon>
+            </button>
+          </div>
+        </div>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,124 @@
+.traffic-sources-page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 24px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.main-table-card {
+  margin-bottom: 32px;
+}
+
+.traffic-table {
+  width: 100%;
+}
+
+.traffic-table th {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.traffic-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+}
+
+.source-cell {
+  display: flex;
+  align-items: center;
+}
+
+.source-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.visitors {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.percentage-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.percentage-bar {
+  width: 100px;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.percentage-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.percentage-text {
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 14px;
+  min-width: 50px;
+}
+
+.trend-up {
+  color: #4caf50;
+}
+
+.trend-down {
+  color: #f44336;
+}

@@ -4,11 +4,20 @@ import { Widget } from '../../models/dashboard';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { WidgetOptionsComponent } from './widget-options/widget-options';
+import { CdkDrag, CdkDragPlaceholder, CdkDragHandle } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-widget',
   standalone: true,
-  imports: [NgComponentOutlet, MatButtonModule, MatIcon, WidgetOptionsComponent],
+  imports: [
+    NgComponentOutlet,
+    MatButtonModule,
+    MatIcon,
+    WidgetOptionsComponent,
+    CdkDrag,
+    CdkDragPlaceholder,
+    CdkDragHandle,
+  ],
   templateUrl: './widget.html',
   styleUrl: './widget.css',
   host: {

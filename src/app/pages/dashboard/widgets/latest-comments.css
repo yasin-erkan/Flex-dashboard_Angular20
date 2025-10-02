@@ -1,0 +1,164 @@
+.latest-comments-container {
+  height: 100%;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.comments-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.comment-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #f3f4f6;
+  min-height: 80px;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  max-width: 75%;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.username {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-title {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-width: 80px;
+  justify-content: flex-end;
+}
+
+.time {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.sentiment-positive,
+.sentiment-negative {
+  font-size: 14px;
+}
+
+.comment-content {
+  margin: 12px 0;
+  max-width: 100%;
+  min-height: 20px;
+}
+
+.comment-content p {
+  margin: 0;
+  color: #374151;
+  font-size: 13px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.comment-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  min-height: 24px;
+}
+
+.like-button,
+.reply-button {
+  color: #6b7280;
+  font-size: 14px;
+  padding: 2px;
+  min-width: auto;
+  width: auto;
+  height: auto;
+}
+
+.like-button:hover,
+.reply-button:hover {
+  color: #6366f1;
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.like-button span {
+  margin-left: 3px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.button-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.view-all-button {
+  color: #6366f1;
+  border-color: #6366f1;
+  font-weight: 500;
+  padding: 8px 24px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.view-all-button:hover {
+  background-color: #6366f1;
+  color: white;
+}
