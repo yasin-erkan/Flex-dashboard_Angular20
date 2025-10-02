@@ -41,14 +41,36 @@
 
 .sidenav-header {
   padding: 24px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background: var(--surface);
+  background: var(--surface-primary);
   animation: fadeIn 0.5s ease-out;
   text-align: center;
+}
+
+.sidenav-header img {
+  width: 140px !important;
+  height: 140px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px var(--shadow-medium);
+  animation: fadeIn 0.5s ease-out 0.2s backwards;
+}
+
+:host-context(.collapsed) .sidenav-header img {
+  width: 45px !important;
+  height: 45px !important;
+}
+
+.sidenav-header img:hover {
+  animation: pulse 1.5s infinite ease-in-out;
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .header-text h2 {
@@ -82,27 +104,6 @@ a[mat-list-item].active mat-icon {
   color: var(--primary);
 }
 
-.sidenav-header img {
-  width: 140px !important;
-  height: 140px !important;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--shadow-md);
-  animation: fadeIn 0.5s ease-out 0.2s backwards;
-}
-
-:host-context(.collapsed) .sidenav-header img {
-  width: 45px !important;
-  height: 45px !important;
-}
-
-.sidenav-header img:hover {
-  animation: pulse 1.5s infinite ease-in-out;
-  cursor: pointer;
-}
-
 .header-text {
   text-align: center;
   height: 3rem;
@@ -113,7 +114,7 @@ a[mat-list-item].active mat-icon {
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.5rem;
-  color: #040202;
+  color: var(--text-primary);
   letter-spacing: 0.2px;
 }
 
@@ -121,10 +122,11 @@ a[mat-list-item].active mat-icon {
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.2rem;
-  color: #3a3535;
-  font-weight: semibold;
+  color: var(--text-secondary);
+  font-weight: 500;
   letter-spacing: 0.2px;
 }
+
 .hide-header-text {
   opacity: 0;
   width: 0;
@@ -135,10 +137,6 @@ a[mat-list-item].active mat-icon {
 :host {
   display: block;
   width: 100%;
-}
-
-.sidenav-header img {
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 mat-nav-list {

@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard';
 import { ContentComponent } from './pages/content/content';
-import { AnalyticsComponent } from './pages/analytics/analytics';
+import { AnalyticsComponent } from './pages/dashboard/widgets/analytics';
+import { AnalyticsPageComponent } from './pages/analytics/analytics';
 import { CommentsComponent } from './pages/comments/comments';
+import { TrafficSourcesPageComponent } from './pages/traffic-sources/traffic-sources';
 
 export const routes: Routes = [
   {
@@ -20,10 +22,14 @@ export const routes: Routes = [
   },
   {
     path: 'analytics',
-    component: AnalyticsComponent,
+    component: AnalyticsPageComponent,
   },
   {
     path: 'comments',
     component: CommentsComponent,
+  },
+  {
+    path: 'traffic-sources',
+    component: TrafficSourcesPageComponent,
   },
 ];

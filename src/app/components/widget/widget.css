@@ -1,5 +1,6 @@
 :host {
   display: block;
+  border-radius: 16px;
 }
 
 .container {
@@ -8,46 +9,77 @@
   width: 100%;
   padding: 24px;
   box-sizing: border-box;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--surface-color);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  overflow: visible;
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  box-shadow: 0 4px 16px var(--shadow-light);
+  border: 1px solid var(--border-light);
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container:active {
+  cursor: grabbing;
 }
 
 .container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  border-color: var(--primary-200);
 }
 
 .content {
-  margin-top: 20px;
-  height: calc(100% - 60px);
+  margin-top: 40px;
+  height: calc(100% - 120px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 h3 {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--text-primary);
-  margin: 0;
-  letter-spacing: 0.3px;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.2px;
   opacity: 0.9;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--primary-100);
+  position: relative;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+  border-radius: 1px;
 }
 
 .settings-button {
   position: absolute;
   top: 20px;
   right: 20px;
-  color: #f3f5f3 !important;
-  opacity: 0.6;
-  transition: opacity 0.2s ease-in-out;
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--surface-secondary);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .settings-button:hover {
   opacity: 1;
+  color: var(--primary-600) !important;
+  background: var(--primary-50);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px var(--shadow-light);
 }

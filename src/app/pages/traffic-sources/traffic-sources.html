@@ -1,0 +1,83 @@
+<div class="traffic-sources-page">
+  <div class="page-header">
+    <h1>Traffic Sources</h1>
+    <p>Detailed analysis of your website traffic sources</p>
+  </div>
+
+  <div class="stats-cards">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-number">28,751</div>
+        <div class="stat-label">Total Visitors</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-number">74.9%</div>
+        <div class="stat-label">Positive Trends</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-number">10</div>
+        <div class="stat-label">Active Sources</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-card class="main-table-card">
+    <mat-card-header>
+      <mat-card-title>Traffic Sources Overview</mat-card-title>
+      <mat-card-subtitle>Detailed breakdown by source</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" class="traffic-table">
+        <ng-container matColumnDef="source">
+          <th mat-header-cell *matHeaderCellDef>Source</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="source-cell">
+              <span class="source-name">{{ element.source }}</span>
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="visitors">
+          <th mat-header-cell *matHeaderCellDef>Visitors</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="visitors">{{ element.visitors.toLocaleString() }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="percentage">
+          <th mat-header-cell *matHeaderCellDef>%</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="percentage-container">
+              <div class="percentage-bar">
+                <div class="percentage-fill" [style.width.%]="element.percentage"></div>
+              </div>
+              <span class="percentage-text">{{ element.percentage }}%</span>
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trend">
+          <th mat-header-cell *matHeaderCellDef>Trend</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon
+              [class]="element.trend === 'up' ? 'trend-up' : 'trend-down'"
+              [style.color]="getTrendColor(element.trend)"
+            >
+              {{ getTrendIcon(element.trend) }}
+            </mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

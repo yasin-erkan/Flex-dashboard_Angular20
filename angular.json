@@ -24,7 +24,7 @@
                 "output": "/"
               }
             ],
-            "styles": ["src/custom-theme.scss", "src/styles.css"]
+            "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {

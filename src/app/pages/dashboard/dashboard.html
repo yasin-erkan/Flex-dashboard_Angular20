@@ -1,9 +1,11 @@
 <div class="header">
   <h2>Dashboard Channel</h2>
-  <button mat-raised-button [mat-menu-trigger-for]="widgetMenu">
-    <mat-icon color="primary">add_circle</mat-icon>
-    <span color="black">Add Widget</span>
-  </button>
+  <div class="header-buttons">
+    <button mat-raised-button [mat-menu-trigger-for]="widgetMenu">
+      <mat-icon>add_circle</mat-icon>
+      <span>Add Widget</span>
+    </button>
+  </div>
   <mat-menu #widgetMenu="matMenu">
     @for (widget of store.widgetsToAdd(); track widget.id) {
     <button mat-menu-item (click)="store.addWidget(widget)">{{ widget.label }}</button>
@@ -11,9 +13,8 @@
   </mat-menu>
 </div>
 
-<div #dashboard class="dashboard-widgets">
+<div class="dashboard-widgets" cdkDropList (cdkDropListDropped)="drop($event)">
   @for (widget of store.addedWidgets(); track widget.id) {
   <app-widget [data]="widget" />
   }
 </div>
- 
